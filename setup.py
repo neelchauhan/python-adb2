@@ -32,15 +32,15 @@ except ImportError:
 
 
 setup(
-    name = 'adb',
-    packages = ['adb'],
-    version = '1.3.0',
-    author = 'Fahrzin Hemmati',
-    author_email = 'fahhem@gmail.com',
-    maintainer = 'Fahrzin Hemmati',
-    maintainer_email = 'fahhem@google.com',
-    url = 'https://github.com/google/python-adb',
-    description = 'A pure python implementation of the Android ADB and Fastboot protocols',
+    name = 'adb2',
+    packages = ['adb2'],
+    version = '2.0.0',
+    author = 'Neel Chauhan',
+    author_email = 'neel@neelc.org',
+    maintainer = 'Neel Chauhan',
+    maintainer_email = 'neel@neelc.org',
+    url = 'https://github.com/neelchauhan/python-adb2',
+    description = 'A pure python implementation of the Android ADB and Fastboot protocols - forked version',
     long_description = '''
 This repository contains a pure-python implementation of the Android
 ADB and Fastboot protocols, using libusb1 for USB communications.
@@ -56,6 +56,8 @@ and therefore does not support multiple simultaneous commands to the
 same device. It does support any number of devices and never
 communicates with a device that it wasn't intended to, unlike the
 Android project's ADB.
+
+This is a forked version, mainly as an alternative for FreeBSD support.
 ''',
 
     keywords = ['android', 'adb', 'fastboot'],
