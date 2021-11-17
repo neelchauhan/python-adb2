@@ -417,3 +417,25 @@ class AdbCommands(object):
         return self.protocol_handler.InteractiveShellCommand(
             conn, cmd=cmd, strip_cmd=strip_cmd,
             delim=delim, strip_delim=strip_delim)
+
+    def Sideload(self, source_file):
+        """Sideload a ZIP to the device.
+
+        Args:
+          source_file: A filename or file-like object to push to the device.
+        """
+        file_size = os.path.getsize(source_file)
+        chunk_size = 1024 * 64
+        file = open(source_file, "r")
+
+        command = 'sideload-host:' + str(file_size) + ':' + str(chunk_size)
+        conn = self._get_service_connection(str.encode(command))
+
+        pos = 0
+        while pos < file_size:
+            data = file.read(chunk_size)
+            conn.Write(data)
+            pos += len(data)
+
+        file.close()
+        conn.Close()
