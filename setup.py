@@ -82,8 +82,8 @@ This is a forked version, mainly as an alternative for FreeBSD support.
     ],
     entry_points={
         "console_scripts": [
-            "pyadb = adb2.adb_debug:main",
-            "pyfastboot = adb2.fastboot_debug:main",
+            "pyadb2 = adb2.adb_debug:main",
+            "pyfastboot2 = adb2.fastboot_debug:main",
         ],
     }
 
