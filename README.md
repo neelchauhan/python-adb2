@@ -47,8 +47,8 @@ A [presentation was made at PyCon 2016][pycon_preso], and here's some demo code:
 ```python
 import os.path as op
 
-from adb import adb_commands
-from adb import sign_cryptography
+from adb2 import adb_commands
+from adb2 import sign_cryptography
 
 
 # KitKat+ devices require authentication

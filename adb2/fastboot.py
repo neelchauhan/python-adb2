@@ -20,8 +20,8 @@ import logging
 import os
 import struct
 
-from adb import common
-from adb import usb_exceptions
+from adb2 import common
+from adb2 import usb_exceptions
 
 _LOG = logging.getLogger('fastboot')
 

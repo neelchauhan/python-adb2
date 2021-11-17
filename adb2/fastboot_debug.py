@@ -24,8 +24,8 @@ import inspect
 import logging
 import sys
 
-from adb import common_cli
-from adb import fastboot
+from adb2 import common_cli
+from adb2 import fastboot
 
 try:
     import progressbar

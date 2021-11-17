@@ -23,21 +23,21 @@ import stat
 import sys
 import time
 
-from adb import adb_commands
-from adb import common_cli
+from adb2 import adb_commands
+from adb2 import common_cli
 
 try:
-    from adb import sign_cryptography
+    from adb2 import sign_cryptography
 
     rsa_signer = sign_cryptography.CryptographySigner
 except ImportError:
     try:
-        from adb import sign_pythonrsa
+        from adb2 import sign_pythonrsa
 
         rsa_signer = sign_pythonrsa.PythonRSASigner.FromRSAKeyPath
     except ImportError:
         try:
-            from adb import sign_pycryptodome
+            from adb2 import sign_pycryptodome
 
             rsa_signer = sign_pycryptodome.PycryptodomeAuthSigner
         except ImportError:
@@ -173,6 +173,7 @@ def main():
     common_cli.MakeSubparser(subparsers, parents, adb_commands.AdbCommands.Root)
     common_cli.MakeSubparser(subparsers, parents, adb_commands.AdbCommands.EnableVerity)
     common_cli.MakeSubparser(subparsers, parents, adb_commands.AdbCommands.DisableVerity)
+    common_cli.MakeSubparser(subparsers, parents, adb_commands.AdbCommands.Sideload)
     common_cli.MakeSubparser(subparsers, parents, Shell)
 
     if len(sys.argv) == 1:
