@@ -25,23 +25,9 @@ import time
 
 from adb2 import adb_commands
 from adb2 import common_cli
+from adb2 import sign_pycryptodome
 
-try:
-    from adb2 import sign_cryptography
-
-    rsa_signer = sign_cryptography.CryptographySigner
-except ImportError:
-    try:
-        from adb2 import sign_pythonrsa
-
-        rsa_signer = sign_pythonrsa.PythonRSASigner.FromRSAKeyPath
-    except ImportError:
-        try:
-            from adb2 import sign_pycryptodome
-
-            rsa_signer = sign_pycryptodome.PycryptodomeAuthSigner
-        except ImportError:
-            rsa_signer = None
+rsa_signer = sign_pycryptodome.PycryptodomeAuthSigner
 
 
 def Devices(args):
