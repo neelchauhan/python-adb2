@@ -428,14 +428,14 @@ class AdbCommands(object):
         chunk_size = 1024 * 64
         file = open(source_file, "r")
 
-        command = 'sideload-host:' + str(file_size) + ':' + str(chunk_size)
+        command = 'sideload:' + str(file_size)
         conn = self._get_service_connection(str.encode(command))
 
-        pos = 0
-        while pos < file_size:
+        while True:
             data = file.read(chunk_size)
+            if not data:
+                break
             conn.Write(data)
-            pos += len(data)
 
         file.close()
         conn.Close()
